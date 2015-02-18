@@ -60,4 +60,4 @@ fi
 chown www-data:www-data "${root}/${vhost}"
 a2ensite "$vhost"
 service apache2 reload
-echo "Created new host under ${root}/${vhost}."
+echo "Created new host under ${root}/${vhost}. \n Be sure to add \"${vhost}.dev\" to your hosts file."
