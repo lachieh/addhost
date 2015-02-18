@@ -40,10 +40,13 @@ fi
 
 if [[ -e ${ava}/${vhost} ]]; then
 	echo "${ava}/${vhost} already exists. Skipping.";
+	exit 2
 elif [[ -e ${ena}/${vhost} ]]; then
 	echo "${ena}/${vhost} already exists. Skipping.";
+	exit 2
 elif [[ -e ${root}/${vhost} ]]; then
 	echo "${root}/${vhost} already exists. Skipping.";
+	exit 2
 else
 	if [[ ! -e ${template} ]]; then
 		echo "${template} does not exist. Cannot create ${ava}/${vhost}.";
@@ -54,7 +57,7 @@ else
 	fi
 fi
 
-chown www-data:www-data "${ava}/${vhost}"
+chown www-data:www-data "${root}/${vhost}"
 a2ensite "$vhost"
 service apache2 reload
 echo "Created new host under ${root}/${vhost}."
