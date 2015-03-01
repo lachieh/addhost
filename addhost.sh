@@ -9,7 +9,7 @@ fi
 ava="/etc/apache2/sites-available";
 ena="/etc/apache2/sites-enabled";
 root="/var/www/vhosts";
-template="`dirname $0`/vhost-template.conf";
+template="`dirname $0`/nginx-template.conf";
 
 while getopts ":h:" opt; do
 	case $opt in
