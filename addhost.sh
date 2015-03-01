@@ -10,6 +10,7 @@ ava="/etc/apache2/sites-available";
 ena="/etc/apache2/sites-enabled";
 root="/var/www/vhosts";
 template="`dirname $0`/nginx-template.conf";
+service="nginx";
 
 while getopts ":h:" opt; do
 	case $opt in
@@ -59,5 +60,5 @@ fi
 
 chown www-data:www-data "${root}/${vhost}"
 a2ensite "$vhost"
-service apache2 reload
+service "$service" restart
 echo "Created new host under ${root}/${vhost}. \n Be sure to add \"${vhost}.dev\" to your hosts file."
